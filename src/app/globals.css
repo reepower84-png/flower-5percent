@@ -1,0 +1,132 @@
+@import "tailwindcss";
+
+/* 5% 플라워 — 내추럴 보태니컬: 크림 · 크래프트지 · 세이지 그린 · 포레스트 */
+:root {
+  --cream: #f5efe2;
+  --paper: #fbf8f1;
+  --kraft: #d8c29c;
+  --kraft-deep: #b8976a;
+  --sage: #8f9f7e;
+  --sage-soft: #e3e8d8;
+  --forest: #2f4b2a;
+  --forest-2: #3b5c35;
+  --ink: #2c2b24;
+  --muted: #6d6a5c;
+  --ribbon: #c2913f;
+  --line: #e2d8c4;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 76px;
+}
+
+body {
+  background: var(--cream);
+  color: var(--ink);
+  font-family: var(--font-sans-ko), "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+.font-batang {
+  font-family: var(--font-batang), "Gowun Batang", "AppleMyungjo", "Batang", serif;
+  letter-spacing: -0.02em;
+}
+
+/* 크래프트지 결 — 외부 이미지 없이 그라데이션으로 */
+.kraft-paper {
+  background-color: var(--kraft);
+  background-image:
+    radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.18) 0 1px, transparent 2px),
+    radial-gradient(circle at 70% 60%, rgba(90, 60, 20, 0.08) 0 1px, transparent 2px),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.12), rgba(120, 85, 40, 0.1));
+  background-size: 7px 7px, 11px 11px, 100% 100%;
+}
+
+.linen {
+  background-image: radial-gradient(rgba(143, 159, 126, 0.16) 1px, transparent 1.2px);
+  background-size: 14px 14px;
+}
+
+/* 유기적인 모서리 */
+.organic-a {
+  border-radius: 46% 54% 42% 58% / 10% 12% 8% 10%;
+}
+.organic-b {
+  border-radius: 140px 18px 140px 18px;
+}
+.organic-c {
+  border-radius: 18px 140px 18px 140px;
+}
+@media (max-width: 640px) {
+  .organic-b {
+    border-radius: 72px 14px 72px 14px;
+  }
+  .organic-c {
+    border-radius: 14px 72px 14px 72px;
+  }
+}
+
+.no-scrollbar {
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+@keyframes sheet-up {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes sway {
+  0%,
+  100% {
+    transform: rotate(-2deg);
+  }
+  50% {
+    transform: rotate(2deg);
+  }
+}
+.anim-sheet {
+  animation: sheet-up 0.28s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.anim-fade {
+  animation: fade-in 0.2s ease-out;
+}
+.anim-sway {
+  transform-origin: 50% 100%;
+  animation: sway 6s ease-in-out infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .anim-sway,
+  .anim-sheet,
+  .anim-fade {
+    animation: none;
+  }
+}
+
+@theme inline {
+  --color-cream: var(--cream);
+  --color-paper: var(--paper);
+  --color-kraft: var(--kraft);
+  --color-sage: var(--sage);
+  --color-forest: var(--forest);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+}
